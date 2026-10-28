@@ -4,10 +4,12 @@ import { Navbar,Footer } from "./Components";
 
 function App() {
   return (
-  <div>
-  <Navbar/>
-  <Footer/>
-  </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+       {/*  */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,17 +1,13 @@
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Home from "./pages/Home";
+import { Navbar,Footer } from "./Components";
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-       {/*  */}
-      </Routes>
-    </BrowserRouter>
+  <div>
+  <Navbar/>
+  <Footer/>
+  </div>
   );
 }
 

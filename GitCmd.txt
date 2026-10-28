@@ -1,0 +1,138 @@
+GIT CHEAT SHEET
+===============
+
+For quick reference.
+- Do not commit passwords, API keys, or .env files.
+
+
+1. BASIC GIT COMMANDS
+---------------------
+
+git init
+    Start tracking a project with Git.
+    Usually run once when setting up a local project.
+
+git status
+    Show changed, new, and staged files.
+
+git add .
+    Stage all changes in the current folder.
+
+git add filename
+    Stage one specific file.
+    Example: git add src/App.jsx
+
+git commit -m "message"
+    Save a snapshot of staged changes.
+    Example: git commit -m "Fix transaction form"
+
+git log
+    View commit history.
+
+git diff
+    Show changes that have not been staged.
+
+git diff --staged
+    Show changes that have been staged.
+
+
+2. CONNECT AND PUSH TO GITHUB
+-----------------------------
+
+git remote -v
+    Show the GitHub repository connected to this project.
+
+git remote add origin URL
+    Connect this project to a GitHub repository.
+    Replace URL with your actual repository URL.
+
+git branch
+    List local branches.
+
+git branch -M main
+    Rename the current branch to main.
+
+git push -u origin main
+    Push the main branch to GitHub and remember its upstream.
+    Usually needed for the first push.
+
+git push
+    Push new commits to the connected branch.
+
+git pull
+    Download and integrate changes from the connected remote branch.
+
+git clone URL
+    Download a repository to your computer.
+    Run this from the folder where you want the project created.
+
+
+3. BRANCH COMMANDS
+------------------
+
+A branch lets you work on a separate version of the project.
+
+git branch
+    List branches.
+
+git branch feature-login
+    Create a branch named feature-login.
+
+git switch feature-login
+    Switch to the feature-login branch.
+
+git switch -c feature-login
+    Create a branch and switch to it.
+
+git merge feature-login
+    Merge feature-login into the branch you are currently on.
+
+git branch -d feature-login
+    Delete a merged local branch.
+
+
+4. UNDO AND RECOVERY COMMANDS
+-----------------------------
+
+Be careful: some commands can discard work.
+
+git restore filename
+    Discard unstaged changes in a file.
+    WARNING: those changes can be lost.
+
+git revert COMMIT_ID
+    Create a new commit that reverses an earlier commit.
+    Replace COMMIT_ID with the commit's ID.
+
+
+
+5. EVERYDAY WORKFLOW: SAVE CHANGES AND PUSH
+-------------------------------------------
+
+Step 1 — Check what changed
+    git status
+
+Step 2 — Stage your changes
+    git add .
+
+Step 3 — Commit your changes
+    git commit -m "Fix transaction form"
+
+Step 4 — Push to GitHub
+    git push
+
+
+REMEMBER WHAT EACH STEP DOES
+----------------------------
+
+git add       = Prepare changes
+git commit    = Save a snapshot locally
+git push      = Upload commits to GitHub
+
+For future updates, the usual sequence is:
+
+    git status
+    git add .
+    git commit -m "Describe your changes"
+    git push
+

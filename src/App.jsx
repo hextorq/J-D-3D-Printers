@@ -1,8 +1,8 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar";
-import Workspace from "./pages/WorkSpace";
-import Home from "./pages/Home";
+
+import Home from "./Pages/Home";
+
 
 function App() {
   return (

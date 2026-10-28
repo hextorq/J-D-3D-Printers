@@ -130,7 +130,7 @@ git commit    = Save a snapshot locally
 git push      = Upload commits to GitHub
 
 For future updates, the usual sequence is:
-
+    git pull origin main
     git status
     git add .
     git commit -m "Describe your changes"

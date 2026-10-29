@@ -6,15 +6,12 @@ const Allroutes = () => {
   return (
     <>
       <Routes>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />{" "}
-          {/* ==> later change this as button */}
-          <Route path="/services" element={<Services />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/contact" element={<Contact />} /> 
-        </Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
   );

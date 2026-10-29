@@ -5,7 +5,7 @@ import React from "react";
 export const Navbar = () => {
 
   const linkClass = ({ isActive }) =>
-  `text-base transition-colors hover:text-[#722f37] ${
+  `text-5xl text-base transition-colors hover:text-[#722f37] ${
     isActive ? "font-bold text-[#722f37]" : " text-[#722f37]"
   }`;
   return (

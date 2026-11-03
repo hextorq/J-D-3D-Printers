@@ -11,7 +11,7 @@ const links = [
 ];
 
 const linkClass = ({ isActive }) =>
-  `text-lg text-base transition-colors hover:text-[#722f37] ${
+  `text-xl text-base transition-colors hover:text-[#722f37] ${
     isActive ? "font-bold text-[#722f37]" : " text-[#722f37]"
   }`;
 
@@ -19,13 +19,13 @@ export const Navbar = () => {
   const [open, setopen] = useState(false);
 
   return (
-    <nav className="bg-[#e8dcc6] border-t-2 border-[#3a3540] shadow-md">
+    <nav className="sticky top-0 bg-[#e8dcc6] border-t-2 border-[#3a3540] shadow-md">
       <div className="mx-auto flex items-center justify-between px-6 py-2">
         <NavLink to="/" className="flex flex-col leading-tight">
-          <span className="text-3xl font-extrabold tracking-wide text-[#722f37]">
+          <span className="text-3xl md:text-4xl font-extrabold tracking-wide text-[#722f37]">
             J-D-3D-Printers
           </span>
-          <span className="text-sm font-bold text-[#722f37]">
+          <span className="text-sm md:text-base font-bold text-[#722f37]">
             An Ultimate 3D printing Hub
           </span>
         </NavLink>

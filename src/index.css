@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 /* Main Footer */
 .footer {
   background-color: #e8dcc656;
@@ -545,5 +544,297 @@
 
   .hero-buttons button {
     width: 100%;
+  }
+}
+
+/* //contact us */
+
+.contact {
+  background-color: #e8dcc6;
+  background-color: #e8dcc6;
+}
+
+.social-btn {
+  align-items: center;
+  gap: 8px;
+  background-color: #722f37;
+  color: #e8dcc6;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.social-btn:hover {
+  background-color: #8b3d46;
+}
+
+.social-btn span {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.social-btn:hover span {
+  transform: translateX(3px);
+}
+
+
+
+.contact-map {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.contact-map h2 {
+  color: #722f37;
+  margin-bottom: 15px;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0 30px;
+  justify-content: center;
+}
+
+.contact-map {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.contact-map h2 {
+  color: #722f37;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  justify-content: center;
+  display: flex;
+}
+.rr {
+  color: #722f37;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.contact-map iframe {
+  display: block;
+  width: 100%;
+  height: 350px;
+  border: 0;
+}
+
+
+
+.about-page {
+  background-color: #f7f2e9;
+  color: #722f37;
+  padding-bottom: 60px;
+}
+
+.about-hero {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #e8dcc6;
+}
+
+.about-label {
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #a66b50;
+}
+
+.about-hero h1 {
+  font-size: 2.8rem;
+  margin: 15px 0;
+}
+
+.about-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+  color: #6b4a45;
+}
+
+.about-content {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.about-card {
+  background: #fffaf3;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(80, 40, 35, 0.08);
+}
+
+.about-card h2 {
+  margin-top: 0;
+  color: #722f37;
+}
+
+.about-card p,
+.about-card li {
+  color: #765650;
+  line-height: 1.8;
+}
+
+.about-card ul {
+  padding-left: 20px;
+}
+
+.about-cta {
+  text-align: center;
+  margin: 40px 20px 0;
+  padding: 45px 20px;
+  background: #722f37;
+  color: #fffaf3;
+  border-radius: 14px;
+}
+
+.about-cta p {
+  margin-bottom: 25px;
+}
+
+.about-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #e8dcc6;
+  color: #722f37;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.about-btn:hover {
+  background: #fffaf3;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Main page */
+.services-page {
+  background-color: #f7f2e9;
+  color: #722f37;
+  min-height: 70vh;
+  padding-bottom: 60px;
+}
+
+/* Hero section */
+.services-hero {
+  text-align: center;
+  padding: 75px 20px;
+  background-color: #e8dcc6;
+}
+
+.services-label {
+  color: #a66b50;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.services-hero h1 {
+  font-size: 2.8rem;
+  margin: 0 0 20px;
+  color: #722f37;
+}
+
+.services-hero p:last-child {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #765650;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* Services section */
+.services-section {
+  max-width: 1150px;
+  margin: 55px auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Individual service cards */
+.services-section article {
+  background-color: #fffaf3;
+  padding: 30px;
+  border: 1px solid #eaded0;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(80, 40, 35, 0.06);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.services-section article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(80, 40, 35, 0.12);
+}
+
+.services-section article h2 {
+  color: #722f37;
+  font-size: 1.3rem;
+  margin: 0 0 15px;
+}
+
+.services-section article p {
+  color: #765650;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .services-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-hero {
+    padding: 55px 20px;
+  }
+
+  .services-hero h1 {
+    font-size: 2rem;
+  }
+
+  .services-section {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 35px auto;
+  }
+
+  .services-section article {
+    padding: 25px;
   }
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import React from "react";
+import logo from "../assets/logo.png";
 
 const links = [
   { to: "/", label: "Home", end: true },
@@ -20,17 +21,21 @@ export const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-[#e8dcc6] border-t-2 border-[#3a3540] shadow-md">
-      <div className="mx-auto flex items-center justify-between px-6 py-2">
-        <NavLink to="/" className="flex flex-col leading-tight">
-          <span className="text-3xl md:text-4xl font-extrabold tracking-wide text-[#722f37]">
-            J-D-3D-Printers
-          </span>
-          <span className="text-sm md:text-base font-bold text-[#722f37]">
-            An Ultimate 3D printing Hub
-          </span>
+      <div className="mx-auto flex min-h-20 w-full items-center justify-between gap-4 px-4 py-2 sm:px-6">
+        <NavLink to="/" className="flex shrink-0 items-center leading-tight">
+          <div className="flex items-center gap-2">
+            <img
+              src={logo}
+              alt="J&D 3D Printer"
+              className="h-16 w-auto  object-contain"
+            />
+            <p className="text-left text-[16px] text-[#722f37]">
+              Ultimate 3D printing Hub
+            </p>
+          </div>
         </NavLink>
         <div className="flex items-center gap-4">
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-6 lg:gap-8">
             {links.map((l) => (
               <li key={l.to}>
                 <NavLink to={l.to} end={l.end} className={linkClass}>
@@ -40,7 +45,7 @@ export const Navbar = () => {
             ))}
           </ul>
 
-          <NavLink to="/search" aria-label="Search" className="text-[#722f37]">
+          <NavLink to="/search" aria-label="Search" className="flex shrink-0 items-center text-[#722f37]">
             <svg
               className="h-6 w-6"
               viewBox="0 0 24 24"

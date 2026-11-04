@@ -41,7 +41,7 @@ export const Footer = () => {
             <h3>Get in Touch</h3>
             <p>Have a question or try?</p>
             <a href="mailto:J&D-3D-Printers@email.com">
-              J&D-3D-Printers@email.com
+              praveenyasu@icloud.com
             </a>
           </div>
         </div>
@@ -62,7 +62,7 @@ export const Footer = () => {
                rel="noreferrer">
               LinkedIn
             </a>
-            <a href="https://www.linkedin.com/company/hextorq-technologies/posts/"
+            <a href="https://wa.me/919952737453"
                target="_blank"
                rel="noreferrer">
               What'sapp

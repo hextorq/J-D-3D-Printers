@@ -5,8 +5,7 @@ import ProtectedRoute from "../Adminpanel/components/ProtectedRoute";
 import { AuthProvider } from "../Adminpanel/AuthContext/AuthContext";
 import AdminLogin from "../Adminpanel/pages/AdminLogin";
 import Dashboard from "../Adminpanel/pages/dashboard";
-
-
+import {Navbar} from "../Components/Navbar";
 const Allroutes = () => {
   return (
     <>
@@ -17,7 +16,7 @@ const Allroutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product" element={<><Navbar /><Product /></>}/>
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
 

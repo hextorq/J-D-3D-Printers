@@ -7,7 +7,7 @@ import Allroutes from "./Routes/Allroutes";
 function App() {
   return (
     <BrowserRouter>
-      <Navbar/>
+      
       <Allroutes/>
       <Footer/>
     </BrowserRouter>

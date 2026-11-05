@@ -25,7 +25,7 @@ const AdminLogin = () => {
   return (
     <div className="admin-login">
       
-<div className="admin-login-section">
+<div className="admin-login-container">
   <h2>Admin Login</h2>
       <form onSubmit={handleSubmit}>
         <input

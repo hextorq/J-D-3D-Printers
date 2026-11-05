@@ -1,8 +1,11 @@
 import React from "react";
+import { Navbar } from "../Components/Navbar";
 
 export const Services = () => {
   return (
+    
     <main className="services-page">
+      <Navbar/>
       <section className="services-hero">
         <p className="services-label">WHAT WE OFFER</p>
         <h1>Our 3D Printing Services</h1>

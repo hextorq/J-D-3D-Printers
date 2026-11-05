@@ -27,9 +27,7 @@ export const Product = ({ limit }) => {
   }, []);
 
   const displayedProducts =
-    limit !== undefined
-      ? products.slice(0, limit)
-      : products;
+    limit !== undefined ? products.slice(0, limit) : products;
 
   if (loading) {
     return <p>Loading products...</p>;
@@ -48,10 +46,7 @@ export const Product = ({ limit }) => {
 
       <div className="products-grid">
         {displayedProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-          />
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </section>

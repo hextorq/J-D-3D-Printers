@@ -1,9 +1,11 @@
 import React from "react";
+import { Navbar } from "../Components/Navbar";
 
 export const Contact = () => {
   return (
     <>
     <section className="contact">
+      <Navbar/>
       <h1 className="rr">Contact Us</h1>
 
       <div className="btn-group">

@@ -1,6 +1,7 @@
 import React from 'react'
 import heroImg from "../assets/herooImg.png";
 import { Product } from "./Product"
+import { Navbar } from "../Components/Navbar";
 
 export const Home = () => {
   return (
@@ -20,8 +21,10 @@ export const Home = () => {
     // </div>
 
 
-<div>
+  <>
+  <Navbar/>
     <section className="hero">
+      
   <img
     src={heroImg}
     alt="3D printed creations"
@@ -56,7 +59,7 @@ export const Home = () => {
 
 
  <Product limit={4} />
-</div>
+</>
   )
 }
 

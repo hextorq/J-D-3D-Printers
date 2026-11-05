@@ -1,0 +1,9 @@
+VITE_ADMIN_EMAIL=  email or phone number
+VITE_ADMIN_PASSWORD= set password
+
+
+VITE_SUPABASE_URL= ask admin
+VITE_SUPABASE_ANON_KEY= ask admin
+
+
+rename this file as .env 

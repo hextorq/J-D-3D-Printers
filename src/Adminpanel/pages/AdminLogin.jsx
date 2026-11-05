@@ -23,11 +23,13 @@ const AdminLogin = () => {
   };
 
   return (
-    <div>
-      <h2>Admin Login</h2>
-
+    <div className="admin-login">
+      
+<div className="admin-login-section">
+  <h2>Admin Login</h2>
       <form onSubmit={handleSubmit}>
         <input
+          className="input-field"
           type="email"
           placeholder="Email"
           value={email}
@@ -36,6 +38,7 @@ const AdminLogin = () => {
         />
 
         <input
+          className="input-field"
           type="password"
           placeholder="Password"
           value={password}
@@ -45,8 +48,11 @@ const AdminLogin = () => {
 
         {error && <p style={{ color: "red" }}>{error}</p>}
 
-        <button type="submit">Login</button>
+        <button className="admin-login-btn" type="submit">
+          Login
+        </button>
       </form>
+    </div>
     </div>
   );
 };

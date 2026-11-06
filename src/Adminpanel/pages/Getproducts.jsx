@@ -27,40 +27,49 @@ export const ViewProducts = () => {
   };
 
   return (
-    <section>
-      <button onClick={handleViewProducts} disabled={loading}>
+    <section className="products-page">
+      <button
+        className="view-products-button"
+        onClick={handleViewProducts}
+        disabled={loading}
+      >
         {loading ? "Loading..." : "View Products"}
       </button>
 
-      {error && <p>Error: {error}</p>}
+      {error && <p className="products-error">Error: {error}</p>}
 
       {showProducts && (
         <div>
-          <h2>Products ({products.length})</h2>
+          <h2 className="products-heading">Products ({products.length})</h2>
 
           {products.length === 0 ? (
             <p>No products found.</p>
           ) : (
-            products.map((product) => (
-              <div key={product.id}>
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <p>₹{product.price}</p>
-
-                {product.image && (
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    width="150"
-                  />
-                )}
-              </div>
-            ))
+            <div className="products-grid">
+              {products.map((product) => (
+                <article className="product-card" key={product.id}>
+                  {product.image && (
+                    <img
+                      className="product-image"
+                      src={product.image}
+                      alt={product.name}
+                    />
+                  )}
+                  <div className="product-details">
+                    <h3>{product.name}</h3>
+                    <p className="product-description">{product.description}</p>
+                    <p className="product-price">₹{product.price}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           )}
         </div>
       )}
     </section>
   );
 };
+
+
 
 export default ViewProducts;

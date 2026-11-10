@@ -1,24 +1,38 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext/AuthContext";
 
-const AdminLogin = () => {
-  const { login } = useAuth();
+function AdminLogin() {
+  const { signIn } = useAuth();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    const success = login(email, password);
+    setError("");
+    setLoading(true);
 
-    if (success) {
-      navigate("/admin/dashboard");
-    } else {
-      setError("Invalid email or password");
+    try {
+      const profile = await signIn(email, password);
+
+    console.log("Profile received:", profile);
+    console.log("User role:", profile?.role);
+
+      if (profile.role === "admin") {
+        navigate("/admin/dashboard", { replace: true });
+      } else {
+        navigate("/", { replace: true });
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -27,20 +41,21 @@ const AdminLogin = () => {
       
 <div className="admin-login-container">
   <h2>Admin Login</h2>
-      <form onSubmit={handleSubmit}>
+
+      <form onSubmit={handleLogin}>
         <input
-          className="input-field"
+         className="input-field"
           type="email"
-          placeholder="Email"
+          placeholder="Enter email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
 
         <input
-          className="input-field"
+         className="input-field"
           type="password"
-          placeholder="Password"
+          placeholder="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -48,13 +63,13 @@ const AdminLogin = () => {
 
         {error && <p style={{ color: "red" }}>{error}</p>}
 
-        <button className="admin-login-btn" type="submit">
-          Login
+        <button  className="admin-login-btn" type="submit" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
         </button>
       </form>
     </div>
     </div>
   );
-};
+}
 
 export default AdminLogin;

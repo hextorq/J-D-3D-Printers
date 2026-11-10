@@ -1,27 +1,40 @@
-import { Link } from "react-router-dom";
+
+import { useState } from "react";
 import ViewProducts from "../pages/Getproducts";
 import AdminNavbar from "../components/AdminNavbar";
-
+import ProductForm from "./Addproduct";
 
 const Dashboard = () => {
-  
+  const [showForm, setShowForm] = useState(false);
+  const [showProducts, setShowProducts] = useState(false);
 
   return (
     <>
-    <AdminNavbar />
-    <div className="dashboard-container">
-<h1>Admin Dashboard</h1>
-      <div className="admin-container" >
+      <AdminNavbar
+        onAddProduct={() => {
+          setShowForm(true);
+          setShowProducts(false);
+        }}
+        onViewProducts={() => {
+          setShowProducts(true);
+          setShowForm(false);
+        }}
+      />
 
-<div>
-  <ViewProducts />
-</div>
-      
+      <div className="dashboard-container">
+        <h1>Admin Dashboard</h1>
+        <p>
+          display dashboard data
+        </p>
+      </div>
 
+      {showProducts && (
+        <ViewProducts onClose={() => setShowProducts(false)} />
+      )}
 
-</div>
-     
-    </div>
+      {showForm && (
+        <ProductForm onClose={() => setShowForm(false)} />
+      )}
     </>
   );
 };

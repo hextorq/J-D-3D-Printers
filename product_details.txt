@@ -1,0 +1,83 @@
+New filename	Product name	Category	Description
+vel-murugan-3d-printed-idol.jpg	Vel Murugan Decorative Idol	Religious Decor	A detailed Murugan figure beneath an ornate arch, suited to a pooja space or as a devotional decor accent.
+no-pain-no-gain-weight-plate-keychain.jpg	No Pain No Gain Weight Plate Keychain	Gym Accessories	A round weight-plate-style keychain featuring “No Pain No Gain” lettering and a metal key ring.
+weight-plate-gym-motivation-keychain.jpg	Blue Gym Motivation Keychain	Gym Accessories	A blue weight-plate design with raised motivational lettering, shown with a metal key ring.
+cute-green-creature-keychain.jpg	Cute Spiky Creature Keychain	Keychains & Accessories	A bright green, seated creature figure with a playful spiky silhouette, attached to a metal key ring.
+black-helmeted-character-keychain.jpg	Black Helmeted Character Keychain	Collectibles & Keychains	A miniature black helmeted sci-fi character with sculpted details and a metal key ring.
+tactical-figure-keychain.jpg	Tactical Figure Keychain	Collectibles & Keychains	A black tactical-style figure keychain, shown from the back with its attached metal ring.
+ghost-skull-tactical-keychain.jpg	Skull-Mask Tactical Figure Keychain	Collectibles & Keychains	A tactical-style figure with a contrasting skull-like face design, shown with a metal key ring.
+sci-fi-figure-keychain-set.jpg	Black and White Sci-Fi Character Keychains	Collectibles & Keychains	A lineup of miniature black and white helmeted character keychains with sculpted details and metal rings.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INSERT INTO public.products
+  (name, category, description, price, image)
+VALUES
+  (
+    'Vel Murugan Decorative Idol',
+    'Religious Decor',
+    'A detailed Murugan figure beneath an ornate arch, suited to a pooja space or as a devotional decor accent.',
+    699.00,
+    'https://aywwzrxouvgccotrimiv.supabase.co/storage/v1/object/public/product-images/vel-murugan-3d-printed-idol.jpg'
+  ),
+  (
+    'No Pain No Gain Weight Plate Keychain',
+    'Gym Accessories',
+    'A round weight-plate-style keychain featuring “No Pain No Gain” lettering and a metal key ring.',
+    399.00,
+    'https://aywwzrxouvgccotrimiv.supabase.co/storage/v1/object/public/product-images/no-pain-no-gain-weight-plate-keychain.jpg'
+  ),
+  (
+    'Blue Gym Motivation Keychain',
+    'Gym Accessories',
+    'A blue weight-plate design with raised motivational lettering, shown with a metal key ring.',
+    399.00,
+    'https://aywwzrxouvgccotrimiv.supabase.co/storage/v1/object/public/product-images/weight-plate-gym-motivation-keychain.jpg'
+  ),
+  (
+    'Cute Spiky Creature Keychain',
+    'Keychains & Accessories',
+    'A bright green, seated creature figure with a playful spiky silhouette, attached to a metal key ring.',
+    399.00,
+    'https://aywwzrxouvgccotrimiv.supabase.co/storage/v1/object/public/product-images/cute-green-creature-keychain.jpg'
+  ),
+  (
+    'Black Helmeted Character Keychain',
+    'Collectibles & Keychains',
+    'A miniature black helmeted sci-fi character with sculpted details and a metal key ring.',
+    449.00,
+    'https://aywwzrxouvgccotrimiv.supabase.co/storage/v1/object/public/product-images/black-helmeted-character-keychain.jpg'
+  ),
+  (
+    'Tactical Figure Keychain',
+    'Collectibles & Keychains',
+    'A black tactical-style figure keychain, shown from the back with its attached metal ring.',
+    449.00,
+    'https://aywwzrxouvgccotrimiv.supabase.co/storage/v1/object/public/product-images/tactical-figure-keychain.jpg'
+  ),
+  (
+    'Skull-Mask Tactical Figure Keychain',
+    'Collectibles & Keychains',
+    'A tactical-style figure with a contrasting skull-like face design, shown with a metal key ring.',
+    449.00,
+    'https://aywwzrxouvgccotrimiv.supabase.co/storage/v1/object/public/product-images/ghost-skull-tactical-keychain.jpg'
+  ),
+  (
+    'Black and White Sci-Fi Character Keychains',
+    'Collectibles & Keychains',
+    'A lineup of miniature black and white helmeted character keychains with sculpted details and metal rings.',
+    499.00,
+    'https://aywwzrxouvgccotrimiv.supabase.co/storage/v1/object/public/product-images/sci-fi-figure-keychain-set.jpg'
+  );

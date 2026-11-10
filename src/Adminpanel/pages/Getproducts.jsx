@@ -1,11 +1,11 @@
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import { supabase } from "../../supabase";
 
-export const ViewProducts = () => {
+export const ViewProducts = ({ onClose }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [showProducts, setShowProducts] = useState(false);
 
   const handleViewProducts = async () => {
     setLoading(true);
@@ -19,57 +19,132 @@ export const ViewProducts = () => {
     if (error) {
       setError(error.message);
     } else {
-      setProducts(data);
-      setShowProducts(true);
+      setProducts(data || []);
     }
 
     setLoading(false);
   };
+  useEffect(() => {
+    handleViewProducts();
+  }, []);
+
+  
+
+
+
+
+
+
+
+
+
+  
+  const onDelete = async (id) => {
+    const { error } = await supabase
+      .from("products")
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      return;
+    }
+
+    alert("Product deleted successfully!");
+    handleViewProducts();
+  };
+
+  const onEdit = async (id) => {
+    const { error } = await supabase
+      .from("products")
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      return;
+    }
+
+    alert("Product deleted successfully!");
+    handleViewProducts();
+  };
+
+
+
+
+
 
   return (
-    <section className="products-page">
-      <button
-        className="view-products-button"
-        onClick={handleViewProducts}
-        disabled={loading}
+    <div className="products-overlay">
+      <section
+        className="products-page"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="view-products-heading"
       >
-        {loading ? "Loading..." : "View Products"}
-      </button>
 
-      {error && <p className="products-error">Error: {error}</p>}
+      <div className="flex justify-between items-center mb-4">
+        <h2 id="view-products-heading" className="products-heading">
+          Products ({products.length})
+        </h2>
 
-      {showProducts && (
-        <div>
-          <h2 className="products-heading">Products ({products.length})</h2>
+        <button
+          type="button"
+          onClick={onClose}
+          className="text-xl"
+        >
+          ✕ Close
+        </button>
+      </div>
 
-          {products.length === 0 ? (
-            <p>No products found.</p>
-          ) : (
-            <div className="products-grid">
-              {products.map((product) => (
-                <article className="product-card" key={product.id}>
-                  {product.image && (
-                    <img
-                      className="product-image"
-                      src={product.image}
-                      alt={product.name}
-                    />
-                  )}
-                  <div className="product-details">
-                    <h3>{product.name}</h3>
-                    <p className="product-description">{product.description}</p>
-                    <p className="product-price">₹{product.price}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          )}
-        </div>
+      {loading && <p>Loading products...</p>}
+
+      {error && <p className="text-red-500">{error}</p>}
+
+      {!loading && !error && products.length === 0 && (
+        <p>No products found.</p>
       )}
-    </section>
+
+      <div className="products-grid">
+        {products.map((product) => (
+          <article className="product-card" key={product.id}>
+
+            {product.image && (
+              <img
+                className="product-image"
+                src={product.image}
+                alt={product.name}
+              />
+            )}
+
+            <div className="product-details">
+              <h3>{product.name}</h3>
+              <p className="product-description">
+                {product.description}
+              </p>
+              <p className="product-price">
+                ₹{product.price}
+              </p>
+            </div>
+
+            <button
+              onClick={() => onEdit(product)}
+              className="rounded-lg bg-[#722f37] px-4 py-2 text-white"
+            >
+              Edit
+            </button>
+
+            <button
+              onClick={() => onDelete(product.id)}
+              className="rounded-lg bg-[#722f37] px-4 py-2 text-white"
+            >
+              Delete
+            </button>
+
+          </article>
+        ))}
+      </div>
+      </section>
+    </div>
   );
 };
-
-
 
 export default ViewProducts;

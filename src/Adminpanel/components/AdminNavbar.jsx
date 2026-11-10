@@ -2,8 +2,9 @@ import logo from "../../assets/logo.png";
 import { useAuth } from "../AuthContext/AuthContext";
 import { useNavigate, NavLink } from "react-router-dom";
 
+
 export const links = [
-  { to: "/admin/dashboard", label: "Dashboard", end: true },
+  // { to: "/admin/dashboard", label: "Dashboard", end: true },
   { to: "/", label: "Home", end: true },
   
 ];
@@ -13,13 +14,18 @@ const linkClass = ({ isActive }) =>
     isActive ? "font-bold text-[#722f37]" : "text-[#722f37]"
   }`;
 
-export const AdminNavbar = () => {
-  const { logout } = useAuth();
+
+export const AdminNavbar = ({onAddProduct, onViewProducts}) => {
+  const { signOut } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await logout();
-    navigate("/admin/login");
+    try {
+      await signOut();
+      navigate("/admin/login", { replace: true });
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
@@ -34,7 +40,7 @@ export const AdminNavbar = () => {
           />
 
           <p className="text-left text-[16px] text-[#722f37]">
-            Ultimate 3D printing Hub
+            welcome, Admin.name
           </p>
         </div>
       </NavLink>
@@ -59,6 +65,21 @@ export const AdminNavbar = () => {
         >
           Logout
         </button>
+        <div className="flex gap-4 items-center">
+        <button
+          onClick={onAddProduct}
+            className="rounded-lg bg-[#722f37] px-4 py-2 text-white transition hover:bg-[#5b252c]"
+        >
+          + Add Product
+        </button>
+        <button
+          onClick={onViewProducts}
+            className="rounded-lg bg-[#722f37] px-4 py-2 text-white transition hover:bg-[#5b252c]"
+        >
+          View Product
+        </button>
+
+      </div>
       </div>
     </nav>
   );

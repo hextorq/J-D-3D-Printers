@@ -24,9 +24,8 @@ const Allroutes = () => {
         <Route path="/admin/login"element={<AdminLogin />}/>
 
           {/* Protected Admin Routes */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/admin/dashboard" element={<Dashboard />}/>
-          </Route>
+            <Route path="/admin/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}/>
+
 
       </Routes>
       </AuthProvider>

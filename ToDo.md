@@ -1,5 +1,19 @@
-PAGES:-
+to do list:-
 
+![alt text](image-1.png)  -------->
+add About section details,
+add Services details
+![alt text](image-2.png)  ----->
+add img support,     
+add edit button in: http://localhost:5173/admin/dashboard --> viewProduct,
+add dynamic admin user.name in admin navbaar,
+add dashboad elements: : http://localhost:5173/admin/dashboard,
+add google analytics: https://analytics.google.com/analytics/web/,
+add db details: : http://localhost:5173/admin/dashboard, 
+
+
+
+PAGES:-
 
 Page	Route	Purpose
 Login	/login	Sign in

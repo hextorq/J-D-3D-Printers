@@ -58,13 +58,7 @@ export const AdminNavbar = ({onAddProduct, onViewProducts}) => {
           </NavLink>
         ))}
 
-        <button
-          type="button"
-          onClick={handleLogout}
-          className="rounded-lg bg-[#722f37] px-4 py-2 text-white transition hover:bg-[#5b252c]"
-        >
-          Logout
-        </button>
+   
         <div className="flex gap-4 items-center">
         <button
           onClick={onAddProduct}
@@ -78,7 +72,13 @@ export const AdminNavbar = ({onAddProduct, onViewProducts}) => {
         >
           View Product
         </button>
-
+     <button
+          type="button"
+          onClick={handleLogout}
+          className="rounded-lg bg-[#722f37] px-4 py-2 text-white transition hover:bg-[#5b252c]"
+        >
+          Logout
+        </button>
       </div>
       </div>
     </nav>

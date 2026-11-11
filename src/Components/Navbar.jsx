@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import React from "react";
 import logo from "../assets/logo.png";
 
 const links = [
@@ -44,19 +43,6 @@ export const Navbar = () => {
               </li>
             ))}
           </ul>
-
-          <NavLink to="/search" aria-label="Search" className="flex shrink-0 items-center text-[#722f37]">
-            <svg
-              className="h-6 w-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-            >
-              <circle cx="10.5" cy="10.5" r="6.5" />
-              <path d="M16 16l5 5" strokeLinecap="round" />
-            </svg>
-          </NavLink>
 
           <button
             className="md:hidden text-[#722f37]"

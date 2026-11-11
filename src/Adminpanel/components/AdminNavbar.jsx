@@ -79,6 +79,9 @@ export const AdminNavbar = ({onAddProduct, onViewProducts}) => {
         >
           Logout
         </button>
+
+
+        
       </div>
       </div>
     </nav>

@@ -1,7 +1,7 @@
 to do list:-
 
 ![alt text](image-1.png)  -------->
-add About section details,
+add About section details, IMPLement serech
 add Services details
 ![alt text](image-2.png)  ----->
 add img support,     

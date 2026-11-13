@@ -57,8 +57,6 @@ export const AdminNavbar = ({onAddProduct, onViewProducts}) => {
             {link.label}
           </NavLink>
         ))}
-
-   
         <div className="flex gap-4 items-center">
         <button
           onClick={onAddProduct}
@@ -78,10 +76,7 @@ export const AdminNavbar = ({onAddProduct, onViewProducts}) => {
           className="rounded-lg bg-[#722f37] px-4 py-2 text-white transition hover:bg-[#5b252c]"
         >
           Logout
-        </button>
-
-
-        
+        </button>        
       </div>
       </div>
     </nav>

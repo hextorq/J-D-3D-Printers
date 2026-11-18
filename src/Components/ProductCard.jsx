@@ -1,35 +1,45 @@
 
-import React from "react";
+import { useState } from "react";
+import ProductDetails from "../Components/ProductDetails";
 
 const ProductCard = ({ product }) => {
+  const [showDetails, setShowDetails] = useState(false);
+
   return (
-    <div className="product-card">
-      <div className="product-image">
-        <img src={product.image} alt={product.name} />
+    <>
+      <div className="product-card">
+        <div className="product-image">
+          <img src={product.image} alt={product.name} />
 
-        <span className="product-badge">3D Printed</span>
-      </div>
+          <span className="product-badge">3D Printed</span>
+        </div>
 
-      <div className="product-info">
-        <p className="product-category">{product.category}</p>
+        <div className="product-info">
+          <p className="product-category">{product.category}</p>
 
-        <h3>{product.name}</h3>
+          <h3>{product.name}</h3>
 
-        <p className="product-description">
-          {product.description}
-        </p>
+          <p className="product-description">{product.description}</p>
 
-        <div className="product-footer">
-          <span className="product-price">
-            ₹{product.price}
-          </span>
+          <div className="product-footer">
+            <span className="product-price">₹{product.price}</span>
 
-          <button className="product-btn">
-            View Product <span>→</span>
-          </button>
+            <button
+              type="button"
+              className="product-btn"
+              onClick={() => setShowDetails(true)}
+            >
+              View Product <span>→</span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+
+      <ProductDetails
+        product={showDetails ? product : null}
+        onClose={() => setShowDetails(false)}
+      />
+    </>
   );
 };
 

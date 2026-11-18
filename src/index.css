@@ -518,6 +518,116 @@
   transform: translateX(3px);
 }
 
+/* ===== Product Details Overlay ===== */
+.product-details-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(207, 205, 205, 0.68);
+  backdrop-filter: blur(2px);
+}
+
+.product-details-modal {
+  position: relative;
+  display: grid;
+  width: min(1080px, 100%);
+  max-height: min(720px, 92vh);
+  overflow: auto;
+  border-radius: 20px;
+  background: #fffaf3;
+  box-shadow: 0 24px 70px rgba(36, 17, 20, 0.35);
+}
+
+.product-details-close {
+  position: absolute;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  background: transparent;
+  font-size: 48px;
+  cursor: pointer;
+}
+
+.product-details-image {
+  min-height: 660px;
+  background: #f2e9dc;
+}
+
+.product-details-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.product-details-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 48px;
+}
+
+.product-details-content h2 {
+  margin: 0 0 18px;
+  color: #722f37;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.15;
+}
+
+.product-details-description {
+  margin: 0 0 26px;
+  color: #765650;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.product-details-price {
+  margin: 0 0 28px;
+  color: #722f37;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.product-details-action {
+  align-self: flex-start;
+  border: 0;
+  border-radius: 9px;
+  padding: 13px 18px;
+  background: #722f37;
+  color: #fffaf3;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.product-details-action:hover {
+  background: #8b3d46;
+}
+
+@media (max-width: 650px) {
+  .product-details-overlay {
+    padding: 14px;
+  }
+
+  .product-details-modal {
+    grid-template-columns: 1fr;
+  }
+
+  .product-details-image,
+  .product-details-image img {
+    min-height: 240px;
+    height: 240px;
+  }
+
+  .product-details-content {
+    padding: 30px 24px 34px;
+  }
+}
+
 /* ===== Responsive Design ===== */
 
 /* Tablets */
@@ -668,8 +778,7 @@
   flex-wrap: wrap;
 }
 
-.hero-btn-primary,
-.hero-btn-secondary {
+.hero-btn-primary {
   padding: 15px 28px;
   border-radius: 10px;
   font-size: 15px;
@@ -677,7 +786,6 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .hero-btn-primary {
   background-color: #722f37;
   color: #e8dcc6;
@@ -689,17 +797,6 @@
   transform: translateY(-3px);
 }
 
-.hero-btn-secondary {
-  background-color: transparent;
-  color: #722f37;
-  border: 2px solid #722f37;
-}
-
-.hero-btn-secondary:hover {
-  background-color: #722f37;
-  color: #e8dcc6;
-  transform: translateY(-3px);
-}
 
 /* Tablet */
 @media (max-width: 768px) {
@@ -942,8 +1039,21 @@
 .services-hero {
   text-align: center;
   padding: 75px 20px;
+  
+}
+
+.services-hero {
+  padding: 110px 8%;
+  text-align: center;
   background-color: #e8dcc6;
 }
+
+.services-hero h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.3;
+  font-weight: 700;
+}
+
 
 .services-label {
   color: #a66b50;
@@ -1031,5 +1141,341 @@
 
   .services-section article {
     padding: 25px;
+  }
+}
+
+
+
+
+
+/* SERVICES */
+
+.about-service {
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+.about-service h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.about-service p {
+  font-size: 0.87rem;
+  line-height: 1.7;
+  opacity: 0.7;
+  margin: 0;
+}
+
+/* MAIN SECTION */
+.services-section {
+  width: 100%;
+  padding: 80px 8%;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+/* EACH ROW */
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* REVERSE ROW */
+.service-row.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* TEXT CONTENT */
+.service-content {
+  width: 100%;
+}
+
+.service-content h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: inherit;
+}
+
+.service-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.75;
+  margin-bottom: 25px;
+}
+
+/* ACCORDION */
+.service-accordion details {
+  border-bottom: 1px solid currentColor;
+  border-bottom-color: rgba(128, 128, 128, 0.3);
+  padding: 16px 0;
+}
+
+.service-accordion summary {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.service-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.service-accordion summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.service-accordion details[open] summary::after {
+  content: "−";
+}
+
+.service-accordion details p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  opacity: 0.7;
+  margin-top: 14px;
+  max-width: 95%;
+}
+
+/* IMAGE */
+.service-image {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.service-image img:hover {
+  transform: scale(1.03);
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .services-section {
+    padding: 60px 5%;
+    gap: 70px;
+  }
+
+  .service-row {
+    gap: 30px;
+  }
+
+  .service-image {
+    height: 280px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 650px) {
+  .services-section {
+    padding: 45px 6%;
+    gap: 55px;
+  }
+
+  .service-row,
+  .service-row.reverse {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .service-row.reverse .service-image {
+    order: 0;
+  }
+
+  .service-row.reverse .service-content {
+    order: 1;
+  }
+
+  .service-image {
+    height: 250px;
+  }
+
+  .service-content h2 {
+    font-size: 1.6rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.about-page {
+  padding: 100px 8%;
+  width: 100%;
+}
+
+/* ABOUT INTRO */
+
+.about-intro {
+  max-width: 850px;
+  margin: 0 auto 120px;
+  text-align: center;
+}
+
+.about-label {
+  color: #7a8f00;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.about-intro h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  margin-bottom: 30px;
+  letter-spacing: -2px;
+}
+
+.about-intro p {
+  font-size: 1rem;
+  line-height: 1.9;
+  opacity: 0.7;
+  margin-bottom: 18px;
+}
+
+/* CONTACT SECTION */
+
+.about-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 70px 0;
+  border-top: 1px solid rgba(128,128,128,0.25);
+}
+
+.contact-heading h2 {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.15;
+  margin-bottom: 25px;
+}
+
+.contact-heading p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  opacity: 0.7;
+  max-width: 400px;
+}
+
+/* FORM */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(128,128,128,0.4);
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: #7a8f00;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  opacity: 0.45;
+}
+
+/* BUTTON */
+
+.contact-submit {
+  width: fit-content;
+  padding: 15px 28px;
+  background: #7a8f00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  transition: opacity 0.3s ease;
+}
+
+.contact-submit:hover {
+  opacity: 0.8;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 70px 6%;
+  }
+
+  .about-intro {
+    margin-bottom: 75px;
+  }
+
+  .about-contact {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding-top: 50px;
+  }
+
+  .about-intro h1 {
+    letter-spacing: -1px;
   }
 }

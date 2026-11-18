@@ -32,7 +32,7 @@ export const Home = () => {
   />
 
   <div className="hero-content">
-    <p className="hero-tagline">J&D 3D PRINTING STUDIO</p>
+    <p className="hero-tagline">JD 3D PRINTING STUDIO</p>
 
     <h1>
       Ideas,
@@ -49,10 +49,9 @@ export const Home = () => {
       <a href="/product" className="hero-btn-primary">
         Explore Products →
       </a>
-
-      <button className="hero-btn-secondary">
-        Get a Custom Print
-      </button>
+      <a href="/about" className="hero-btn-primary">
+        Get a Custom Print →
+      </a>
     </div>
   </div>
 </section>

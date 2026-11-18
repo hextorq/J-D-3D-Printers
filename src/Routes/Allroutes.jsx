@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Home, Search, Services, Product, About, Contact } from "../Pages";
+import { Home, Services, Product, About, Contact } from "../Pages";
 import ProtectedRoute from "../Adminpanel/components/ProtectedRoute";
 import { AuthProvider } from "../Adminpanel/AuthContext/AuthContext";
 import AdminLogin from "../Adminpanel/pages/AdminLogin";
@@ -14,7 +14,6 @@ const Allroutes = () => {
                {/* Public Routes */}
         <Route path="*" element={<Navigate to="/" replace />}/>
         <Route path="/" element={<Home />} />
-        <Route path="/search" element={<Search />} />
         <Route path="/services" element={<Services />} />
         <Route path="/product" element={<><Navbar /><Product /></>}/>
         <Route path="/about" element={<About />} />

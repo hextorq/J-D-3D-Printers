@@ -21,7 +21,7 @@ export const Footer = () => {
         <div className="footer-main">
           <div className="footer-brand">
             <a href="#home" className="footer-logo">
-              J&D-3D-Printers<span>.</span>
+              JD-3D-Printers<span>.</span>
             </a>
             <p>Made with React.</p>
           </div>
@@ -48,7 +48,7 @@ export const Footer = () => {
 
         <div className="footer-bottom">
          <p>
-          © {new Date().getFullYear()} J&D-3D-Printers. All rights reserved.
+          © {new Date().getFullYear()} JD-3D-Printers. All rights reserved.
         </p>
 
           <div className="footer-socials">

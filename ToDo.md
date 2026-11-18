@@ -2,6 +2,7 @@ to do list:-
 
 RENAME TO:- JD-3d-printers
 Need to add stl file
+create form for :Get a Custom Print @home  
 
 ![alt text](image-1.png)  -------->
 add About section details, IMPLement serech

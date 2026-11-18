@@ -25,11 +25,12 @@ export const Navbar = () => {
           <div className="flex items-center gap-2">
             <img
               src={logo}
-              alt="J&D 3D Printer"
+              alt="JD 3D Printer"
               className="h-16 w-auto  object-contain"
             />
             <p className="text-left text-[16px] text-[#722f37]">
-              Ultimate 3D printing Hub
+
+              
             </p>
           </div>
         </NavLink>

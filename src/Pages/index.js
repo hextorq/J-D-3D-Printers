@@ -1,5 +1,6 @@
 export {Home} from "./Home"
 export {Product} from "./Product"
+export {Custom3D} from "./Custom3D"
 export {About} from "./About"
 export {Contact} from "./Contact"
 export {Services} from "./Services"

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+import STLViewer from "../Components/STLViewer";
 
-const ProductDetails = ({ product, onClose }) => {
+const ProductDetails = ({ product, showSTL = false, onClose }) => {
   useEffect(() => {
     if (!product) return undefined;
 
@@ -44,7 +45,11 @@ const ProductDetails = ({ product, onClose }) => {
         </button>
 
         <div className="product-details-image">
-          <img src={product.image} alt={product.name} />
+          {showSTL && product.model ? (
+            <STLViewer src={product.model} alt={`${product.name} STL model`} />
+          ) : (
+            <img src={product.image} alt={product.name} />
+          )}
         </div>
 
         <div className="product-details-content">
@@ -54,9 +59,20 @@ const ProductDetails = ({ product, onClose }) => {
             {product.description || "A carefully crafted 3D printed product made for your space."}
           </p>
           <p className="product-details-price">₹{product.price}</p>
-          <button type="button" className="product-details-action" onClick={onClose}>
-            Continue browsing
-          </button>
+          <div className="product-details-actions">
+            {showSTL && product.model && (
+              <a
+                className="product-details-action"
+                href={product.model}
+                download
+              >
+                Download STL
+              </a>
+            )}
+            <button type="button" className="product-details-action" onClick={onClose}>
+              Continue browsing
+            </button>
+          </div>
         </div>
       </section>
     </div>

@@ -1,6 +1,11 @@
-const Searchbar = ({ value, onChange, placeholder = "Search products..." }) => {
+const Searchbar = ({
+  value,
+  onChange,
+  placeholder = "Search products...",
+}) => {
   return (
-    <div className="relative">
+   <div className="products-page-search">
+     
       <input
         type="search"
         placeholder={placeholder}

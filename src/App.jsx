@@ -7,7 +7,6 @@ import Allroutes from "./Routes/Allroutes";
 function App() {
   return (
     <BrowserRouter>
-      
       <Allroutes/>
       <Footer/>
     </BrowserRouter>

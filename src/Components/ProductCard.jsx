@@ -1,15 +1,20 @@
 
 import { useState } from "react";
 import ProductDetails from "../Components/ProductDetails";
+import STLViewer from "../Components/STLViewer";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, showSTL = false }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
     <>
       <div className="product-card">
         <div className="product-image">
-          <img src={product.image} alt={product.name} />
+          {showSTL && product.model ? (
+            <STLViewer src={product.model} alt={`${product.name} STL model`} />
+          ) : (
+            <img src={product.image} alt={product.name} />
+          )}
 
           <span className="product-badge">3D Printed</span>
         </div>
@@ -37,6 +42,7 @@ const ProductCard = ({ product }) => {
 
       <ProductDetails
         product={showDetails ? product : null}
+        showSTL={showSTL}
         onClose={() => setShowDetails(false)}
       />
     </>

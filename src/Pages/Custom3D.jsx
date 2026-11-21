@@ -1,26 +1,30 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import ProductCard from "../Components/ProductCard";
+import ProductFilters from "../Components/ProductFilters";
 import Searchbar from "../Components/Searchbar";
 import { supabase } from "../supabase";
 
-export const Custom3D = ({ limit }) => {
+export const Custom3D = ({ limit, showFilters = true }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
    const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("all");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const { data, error } = await supabase
-        .from("products")
+      const { data, error: fetchError } = await supabase
+        .from("custom3d_stl")
         .select("*")
         .order("id", { ascending: true });
 
-      if (error) {
-        setError(error.message);
+      if (fetchError) {
+        setError(`Unable to load custom 3D products: ${fetchError.message}`);
       } else {
-        setProducts(data || []);
+        setProducts(Array.isArray(data) ? data : []);
       }
 
       setLoading(false);
@@ -33,11 +37,20 @@ export const Custom3D = ({ limit }) => {
     const value = search.toLowerCase().trim();
 
     return (
-      product.name?.toLowerCase().includes(value) ||
-      product.description?.toLowerCase().includes(value) ||
-      String(product.price).includes(value)
+      (product?.name?.toLowerCase().includes(value) ||
+        product?.description?.toLowerCase().includes(value) ||
+        String(product?.price ?? "").includes(value)) &&
+      (category === "all" || product?.category === category) &&
+      (minPrice === "" || Number(product?.price) >= Number(minPrice)) &&
+      (maxPrice === "" || Number(product?.price) <= Number(maxPrice))
     );
   });
+
+  const categories = [...new Set(products.map((product) => product.category).filter(Boolean))].sort();
+  const maxPriceLimit = Math.max(
+    500,
+    Math.ceil(Math.max(...products.map((product) => Number(product.price) || 0), 0) / 100) * 100,
+  );
 
   const displayedProducts =
     limit !== undefined
@@ -59,24 +72,55 @@ export const Custom3D = ({ limit }) => {
         <p>OUR COLLECTION</p>
         <h2>Explore Our Custom3D</h2>
       </div>
-      <Searchbar
-        value={search}
-        onChange={setSearch}
-        placeholder="Search name, description, or price..."
-      />
-
-      <div className="products-grid">
-        {displayedProducts.length > 0 ? (
-          displayedProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
+      {showFilters ? (
+        <div className="products-content-layout custom3d-products-layout">
+          <aside className="products-filter-sidebar custom3d-filter-sidebar" aria-label="Custom 3D product filters">
+            <Searchbar
+              className="products-page-search"
+              value={search}
+              onChange={setSearch}
+              placeholder="Search name, description, or price..."
             />
-          ))
-        ) : (
-          <p>No products found.</p>
-        )}
-      </div>
+            <ProductFilters
+              categories={categories}
+              category={category}
+              minPrice={minPrice}
+              maxPrice={maxPrice}
+              maxPriceLimit={maxPriceLimit}
+              onCategoryChange={setCategory}
+              onMinPriceChange={setMinPrice}
+              onMaxPriceChange={setMaxPrice}
+              onReset={() => {
+                setCategory("all");
+                setMinPrice("");
+                setMaxPrice("");
+              }}
+            />
+          </aside>
+
+          <div className="products-results">
+            <div className="products-grid">
+              {displayedProducts.length > 0 ? (
+                displayedProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} showSTL />
+                ))
+              ) : (
+                <p>No products found.</p>
+              )}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="products-grid">
+          {displayedProducts.length > 0 ? (
+            displayedProducts.map((product) => (
+              <ProductCard key={product.id} product={product} showSTL />
+            ))
+          ) : (
+            <p>No products found.</p>
+          )}
+        </div>
+      )}
     </section>
 </>
   )

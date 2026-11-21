@@ -33,16 +33,17 @@ export const Home = () => {
             <a href="/product" className="hero-btn-primary">
               Explore Products →
             </a>
-            <a href="/about" className="hero-btn-primary">
+            <a href="/contact" className="hero-btn-primary">
               Get a Custom Print →
             </a>
           </div>
         </div>
       </section>
 
-
-      <Product limit={4} />
-      <Custom3D limit={4} />
+      <div className="home-product-sections">
+        <Product limit={4} showFilters={false} />
+        <Custom3D limit={4} showFilters={false} />
+      </div>
 
     </>
   )

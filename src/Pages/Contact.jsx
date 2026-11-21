@@ -18,7 +18,7 @@ export const Contact = () => {
    
       <div className="contact-location-layout">
         <span>VISIT OUR STUDIO</span>
-            <h2>Shop location</h2>
+            <h2>Look Our Work On</h2>
           <div className="contact-section-heading">
           <iframe
             title="J&D 3D Printers location"

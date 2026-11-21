@@ -15,7 +15,7 @@ const linkClass = ({ isActive }) =>
   }`;
 
 
-export const AdminNavbar = ({onAddProduct, onViewProducts}) => {
+export const AdminNavbar = ({ onAddProduct, onEditProducts }) => {
   const { signOut } = useAuth();
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ export const AdminNavbar = ({onAddProduct, onViewProducts}) => {
   };
 
   return (
-    <nav className="flex items-center justify-between bg-[#e8dcc6] px-6 py-3">
+    <nav className="admin-navbar flex items-center justify-between bg-[#e8dcc6] px-6 py-3">
       {/* Logo */}
       <NavLink to="/admin/dashboard" className="flex shrink-0 items-center">
         <div className="flex items-center gap-2">
@@ -39,14 +39,14 @@ export const AdminNavbar = ({onAddProduct, onViewProducts}) => {
             className="h-16 w-auto object-contain"
           />
 
-          <p className="text-left text-[16px] text-[#722f37]">
+          <p className="admin-welcome text-left text-[16px] text-[#722f37]">
             welcome, Admin.name
           </p>
         </div>
       </NavLink>
 
       {/* Admin navigation links */}
-      <div className="flex items-center gap-6">
+      <div className="admin-nav-content flex items-center gap-6">
         {links.map((link) => (
           <NavLink
             key={link.to}
@@ -57,27 +57,29 @@ export const AdminNavbar = ({onAddProduct, onViewProducts}) => {
             {link.label}
           </NavLink>
         ))}
-        <div className="flex gap-4 items-center">
-        <button
-          onClick={onAddProduct}
+        <div className="admin-nav-actions flex gap-4 items-center">
+          <button
+            type="button"
+            onClick={onAddProduct}
             className="rounded-lg bg-[#722f37] px-4 py-2 text-white transition hover:bg-[#5b252c]"
-        >
-          + Add Product
-        </button>
-        <button
-          onClick={onViewProducts}
-            className="rounded-lg bg-[#722f37] px-4 py-2 text-white transition hover:bg-[#5b252c]"
-        >
-          View Product
-        </button>
-     <button
+          >
+            + Add Product
+          </button>
+          <button
+            type="button"
+            onClick={onEditProducts}
+            className="rounded-lg border border-[#722f37] px-4 py-2 text-[#722f37] transition hover:bg-[#722f37] hover:text-white"
+          >
+            Edit Products
+          </button>
+          <button
           type="button"
           onClick={handleLogout}
           className="rounded-lg bg-[#722f37] px-4 py-2 text-white transition hover:bg-[#5b252c]"
-        >
-          Logout
-        </button>        
-      </div>
+          >
+            Logout
+          </button>
+        </div>
       </div>
     </nav>
   );

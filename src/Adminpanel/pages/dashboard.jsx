@@ -1,35 +1,35 @@
 
 import { useState } from "react";
-import ViewProducts from "../pages/Getproducts";
+import ViewProducts from "../components/Getproducts";
 import AdminNavbar from "../components/AdminNavbar";
-import ProductForm from "./Addproduct";
+import ProductForm from "../components/Addproduct";
 
 const Dashboard = () => {
   const [showForm, setShowForm] = useState(false);
-  const [showProducts, setShowProducts] = useState(false);
+  const [showEditProducts, setShowEditProducts] = useState(false);
 
   return (
     <>
       <AdminNavbar
         onAddProduct={() => {
           setShowForm(true);
-          setShowProducts(false);
+          setShowEditProducts(false);
         }}
-        onViewProducts={() => {
-          setShowProducts(true);
+        onEditProducts={() => {
+          setShowEditProducts(true);
           setShowForm(false);
         }}
       />
 
-      <div className="dashboard-container">
+      <main className="dashboard-container admin-dashboard">
         <h1>Admin Dashboard</h1>
         <p>
           display dashboard data
         </p>
-      </div>
+      </main>
 
-      {showProducts && (
-        <ViewProducts onClose={() => setShowProducts(false)} />
+      {showEditProducts && (
+        <ViewProducts onClose={() => setShowEditProducts(false)} />
       )}
 
       {showForm && (

@@ -461,14 +461,14 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 28px;
-  max-width: 130px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
 /* ===== Product Filters ===== */
 .products-content-layout {
   display: grid;
-  grid-template-columns: 270px minmax(0, 1fr);
+  grid-template-columns: 240px minmax(0, 1fr);
   align-items: start;
   gap: 28px;
 }
@@ -477,7 +477,7 @@
   position: sticky;
   top: clamp(240px, 34vh, 298px);
   z-index: 10;
-  width: 270px;
+  width: 240px;
 }
 
 .products-results {
@@ -488,7 +488,10 @@
 .products-page-search {
   position: relative;
   margin-bottom: 18px;
-  max-width: 130;
+}
+
+.products-page-search input {
+  width: 100%;
 }
 
 .custom3d-filter-sidebar {
@@ -505,7 +508,8 @@
   border: 1px solid rgba(114, 47, 55, 0.14);
   border-radius: 14px;
   background: rgba(255, 250, 243, 0.58);
-  min-width: 319px;
+  min-width: 0;
+  width: 100%;
 }
 
 .product-filter-field {

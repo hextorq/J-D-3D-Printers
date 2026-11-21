@@ -461,7 +461,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 28px;
-  max-width: 1300px;
+  max-width: 130px;
   margin: 0 auto;
 }
 
@@ -488,6 +488,7 @@
 .products-page-search {
   position: relative;
   margin-bottom: 18px;
+  max-width: 130;
 }
 
 .custom3d-filter-sidebar {

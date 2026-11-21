@@ -31,5 +31,4 @@ const Searchbar = ({
   );
 };
 
-export { Searchbar };
 export default Searchbar;

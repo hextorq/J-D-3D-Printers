@@ -23,18 +23,25 @@ export const Footer = () => {
             <a href="#home" className="footer-logo">
               JD-3D-Printers<span>.</span>
             </a>
-            <p>Made with React.</p>
-          </div>
+            <p className="made-by">
+              made with ❤️ by{" "}
+              <a
+                href="https://hextorq.tech"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                hextorq.
+              </a>
+            </p>          </div>
 
           <div className="footer-links">
             <h3>Quick Links</h3>
             <a href="/home">Home</a>
-            <a href="/workspace">Work Space</a>
             <a href="/product">product</a>
+            <a href="/Custom3d">Custom3d</a>
             <a href="/services">services</a>
             <a href="/about">about</a>
             <a href="/contact">contact</a>
-            <a href="https://hextorq.tech/" >hextorq.tech </a>
           </div>
 
           <div className="footer-contact">
@@ -43,28 +50,39 @@ export const Footer = () => {
             <a href="mailto:J&D-3D-Printers@email.com">
               praveenyasu@icloud.com
             </a>
+            
+            <a href="https://wa.me/919952737453"
+              target="_blank"
+              rel="noreferrer">
+              What'sapp
+            </a>
           </div>
         </div>
 
         <div className="footer-bottom">
-         <p>
-          © {new Date().getFullYear()} JD-3D-Printers. All rights reserved.
-        </p>
+          <p>
+            © {new Date().getFullYear()} JD-3D-Printers. All rights reserved.
+          </p>
 
           <div className="footer-socials">
             <a href="https://www.instagram.com/hextorq"
-               target="_blank"
-               rel="noreferrer">
+              target="_blank"
+              rel="noreferrer">
               Instagram
             </a>
             <a href="https://www.linkedin.com/company/hextorq-technologies/posts/"
-               target="_blank"
-               rel="noreferrer">
+              target="_blank"
+              rel="noreferrer">
               LinkedIn
             </a>
+            <a href="https://www.linkedin.com/company/hextorq-technologies/posts/"
+              target="_blank"
+              rel="noreferrer">
+              Facebook
+            </a>
             <a href="https://wa.me/919952737453"
-               target="_blank"
-               rel="noreferrer">
+              target="_blank"
+              rel="noreferrer">
               What'sapp
             </a>
           </div>

@@ -1,6 +1,6 @@
 import heroImg from "../assets/herooImg.png";
 import { Product } from "./Product"
-import { Custom3D } from "./Custom3D"
+import { Custom3d } from "./Custom3D"
 import { Navbar } from "../Components/Navbar";
 
 export const Home = () => {
@@ -42,7 +42,7 @@ export const Home = () => {
 
       <div className="home-product-sections">
         <Product limit={4} showFilters={false} />
-        <Custom3D limit={4} showFilters={false} />
+        <Custom3d limit={4} showFilters={false} />
       </div>
 
     </>

@@ -21,6 +21,9 @@ const ProductDetails = ({ product, showSTL = false, onClose }) => {
 
   if (!product) return null;
 
+  const whatsappMessage = `Hello, I would like to order this product:\nProduct ID: ${product.id}\nProduct Name: ${product.name}\nPrice: ₹${product.price}`;
+  const whatsappUrl = `https://wa.me/919952737453?text=${encodeURIComponent(whatsappMessage)}`;
+
   return (
     <div
       className="product-details-overlay"
@@ -60,18 +63,14 @@ const ProductDetails = ({ product, showSTL = false, onClose }) => {
           </p>
           <p className="product-details-price">₹{product.price}</p>
           <div className="product-details-actions">
-            {showSTL && product.model && (
-              <a
-                className="product-details-action"
-                href={product.model}
-                download
-              >
-                Download STL
-              </a>
-            )}
-            <button type="button" className="product-details-action" onClick={onClose}>
-              Continue browsing
-            </button>
+            <a
+              className="product-details-action"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Order on WhatsApp
+            </a>
           </div>
         </div>
       </section>

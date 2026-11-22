@@ -5,7 +5,7 @@ import ProductFilters from "../Components/ProductFilters";
 import Searchbar from "../Components/Searchbar";
 import { supabase } from "../supabase";
 
-export const Custom3D = ({ limit, showFilters = true }) => {
+export const Custom3d = ({ limit, showFilters = true }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { supabase } from "../../supabase";
 import STLViewer from "../../Components/STLViewer";
 
@@ -20,6 +20,7 @@ export default function ProductForm({ onClose, onSaved, product = null }) {
   const [contentType, setContentType] = useState(product?.model ? "custom3d" : "product");
   const [formData, setFormData] = useState({ ...EMPTY_FORM, ...product });
   const [selectedFile, setSelectedFile] = useState(null);
+  const fileInputRef = useRef(null);
   const [previewUrl, setPreviewUrl] = useState(product?.model || product?.image || "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -136,15 +137,22 @@ export default function ProductForm({ onClose, onSaved, product = null }) {
             <strong>{isCustom3d ? "Upload Custom 3D model" : "Upload product image"}</strong>
             <span>{isCustom3d ? "Drop an STL file here, or browse" : "Drop your image here, or browse"}</span>
             <small>{isCustom3d ? "Supports STL" : "Supports PNG, JPG, JPEG, WEBP"}</small>
-            <label className="admin-upload-button">
+            <button
+              type="button"
+              className="admin-upload-button"
+              onClick={() => fileInputRef.current?.click()}
+            >
               Browse files
-              <input
-                type="file"
-                accept={isCustom3d ? ".stl,model/stl" : "image/*"}
-                onChange={(event) => handleFileChange(event.target.files?.[0])}
-                required={!isEditing && !formData.image && !formData.model}
-              />
-            </label>
+            </button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept={isCustom3d ? ".stl,model/stl" : "image/*"}
+              onChange={(event) => handleFileChange(event.target.files?.[0])}
+              required={!isEditing && !selectedFile && !formData.image && !formData.model}
+              className="admin-upload-input"
+              aria-label={isCustom3d ? "Choose custom 3D model" : "Choose product image"}
+            />
             {selectedFile && <small className="admin-upload-filename">{selectedFile.name}</small>}
           </div>
 

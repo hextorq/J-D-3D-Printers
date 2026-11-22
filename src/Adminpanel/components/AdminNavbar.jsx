@@ -4,7 +4,6 @@ import { useNavigate, NavLink } from "react-router-dom";
 
 
 export const links = [
-  // { to: "/admin/dashboard", label: "Dashboard", end: true },
   { to: "/", label: "Home", end: true },
   
 ];
@@ -16,8 +15,10 @@ const linkClass = ({ isActive }) =>
 
 
 export const AdminNavbar = ({ onAddProduct, onEditProducts }) => {
-  const { signOut } = useAuth();
+  const { user, profile, signOut } = useAuth();
   const navigate = useNavigate();
+  const adminEmail = profile?.email || "Admin";
+  const adminName = adminEmail.split("@")[0];
 
   const handleLogout = async () => {
     try {
@@ -40,7 +41,7 @@ export const AdminNavbar = ({ onAddProduct, onEditProducts }) => {
           />
 
           <p className="admin-welcome text-left text-[16px] text-[#722f37]">
-            welcome, Admin.name
+            Welcome, {adminName}
           </p>
         </div>
       </NavLink>
@@ -61,21 +62,28 @@ export const AdminNavbar = ({ onAddProduct, onEditProducts }) => {
           <button
             type="button"
             onClick={onAddProduct}
-            className="rounded-lg bg-[#722f37] px-4 py-2 text-white transition hover:bg-[#5b252c]"
+            className="admin-nav-button"
           >
             + Add Product
           </button>
           <button
             type="button"
             onClick={onEditProducts}
-            className="rounded-lg border border-[#722f37] px-4 py-2 text-[#722f37] transition hover:bg-[#722f37] hover:text-white"
+            className="admin-nav-button"
           >
             Edit Products
           </button>
           <button
-          type="button"
-          onClick={handleLogout}
-          className="rounded-lg bg-[#722f37] px-4 py-2 text-white transition hover:bg-[#5b252c]"
+            type="button"
+            onClick={() => window.location.assign("https://analytics.google.com/")}
+            className="admin-nav-button"
+          >
+            Google Analytics
+          </button>
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="admin-nav-button"
           >
             Logout
           </button>

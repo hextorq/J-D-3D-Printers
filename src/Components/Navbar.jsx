@@ -10,6 +10,7 @@ const links = [
   { to: "/services", label: "Services" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
+  { to: "/login", label: "LogIn" },
  
 ];
 
@@ -66,7 +67,9 @@ export const Navbar = () => {
             )}
           </svg>
         </button>
+        
       </div>
+      
     </nav>
   );
 };

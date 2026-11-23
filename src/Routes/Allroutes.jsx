@@ -6,6 +6,8 @@ import { AuthProvider } from "../Adminpanel/AuthContext/AuthContext";
 import AdminLogin from "../Adminpanel/pages/AdminLogin";
 import Dashboard from "../Adminpanel/pages/dashboard";
 import {Navbar} from "../Components/Navbar";
+import Signup from "../Pages/signup";
+import Login from "../Pages/login";
 const Allroutes = () => {
   return (
     <>
@@ -19,6 +21,8 @@ const Allroutes = () => {
         <Route path="/Custom3D" element={<><Navbar /><Custom3d /></>}/>
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
                {/* Admin Login */}
         <Route path="/admin/login"element={<AdminLogin />}/>
